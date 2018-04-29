@@ -4,7 +4,7 @@ var getMessages = (function() {
     "Content-Type": "application/json"
   };
 
-  const BASE_URL = "http://message-list.appspot.com/";
+  const BASE_URL = "//message-list.appspot.com/";
 
   const parseJSON = (response) => response.json();
 
