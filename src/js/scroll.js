@@ -456,8 +456,6 @@ var Scroll = (function() {
   Scroll.prototype.getSwipeTargetIndex = function() {
     if (!this.swipeTarget) return;
     var id = this.swipeTarget.getAttribute("data-id");
-    console.log("elem id", id);
-    console.log("message nodes", this.messageNodes);
     var firstItemId = this.messageNodes[this.pivotElement].index;
     var diff = id - firstItemId;
     var currentItemIndex = this.pivotElement + diff;
@@ -547,8 +545,6 @@ var Scroll = (function() {
     this.isCardDragging = true;
 
     var yTranslate = this.getSwipeTarget().top;
-    console.log("--calculated swipe target--", this.getSwipeTarget());
-    console.log("yTranslate", yTranslate);
     var opacity = (this.swipeTargetWidth - Math.abs(diff))/this.swipeTargetWidth;
     var displacement = Math.abs(diff)/this.swipeTargetWidth;
 
