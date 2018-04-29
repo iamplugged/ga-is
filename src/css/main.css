@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  background: #eeeeee;
+}
+
+header {
+  width: 100%;
+  height: 56px;
+  color: #FFF;
+  background: #66499D;
+  font-size: 20px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),
+    0 2px 9px 1px rgba(0,0,0,.12),
+    0 4px 2px -2px rgba(0,0,0,.2);
+  padding: 12px 16px 0;
+  position: relative;
+  display: flex;
+  z-index: 1;
+}
+
+.menu {
+  cursor: pointer;
+}
+
+.menu span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #FFFFFF;
+  margin: 5px 0;
+}
+
+header h1 {
+  margin: 0 0 0 40px;
+  padding: 3px 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+#templates {
+  display: none;
+}
+
+#message-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0;
+  box-sizing: border-box;
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  position: absolute;
+  font-size: 16px;
+  line-height: 20px;
+  width: calc(100% - 30px);
+  box-sizing: border-box;
+  background: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  margin: 15px 15px;
+  padding: 20px 20px 30px;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.card p {
+  margin: 16px 0 0;
+  font-weight: 400;
+  font-size: 1.120em;
+  line-height: 1.3em;
+}
+
+.time {
+  color: #4C4C4C;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.name {
+  font-size: 1.125em;
+  font-weight: 500;
+}
+
+.avatar {
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 50px;
+}
+
+.placeholder {
+  opacity: 1;
+}
+
+.placeholder p {
+  background-color: #CCCCCC;
+  height: 0.5em;
+  margin: 0.5em 0;
+}
+
+.placeholder .meta {
+  width: 30%;
+}
+
+.hidden {
+  display: none;
+}
