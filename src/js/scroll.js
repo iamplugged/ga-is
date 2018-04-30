@@ -1,4 +1,5 @@
 var Scroll = (function() {
+
   var defaults = {
     container: "#message-list",
     message: ".message",
@@ -470,19 +471,24 @@ var Scroll = (function() {
     return this.messageNodes[this.getSwipeTargetIndex()];
   };
 
+  Scroll.prototype.removeTransition = function() {
+
+  }
+
   Scroll.prototype.removeAndMoveNodes = function(index) {
     var currentItem = this.messageNodes[index];
     var itemId = currentItem.index;
     var top = currentItem.top;
     var nodesLen = this.messageNodes.length;
 
-    var i = index + 1;
+    var i = index === nodesLen - 1 ? 0 : ++index;
     var currentNode = this.messageNodes[i];
     while (currentNode.index > itemId) {
+      currentNode.ref.style.transition = "transform 150ms ease-in";
       currentNode.ref.style.transform = "translateY(" + top + "px)";
+
       currentNode.top = top;
       top += currentNode.height + this.options.gutter;
-
       i = i < nodesLen - 1 ? ++i : 0;
       currentNode = this.messageNodes[i];
     }
@@ -497,7 +503,7 @@ var Scroll = (function() {
     if(this.swipeTarget) return;
     var target = ev.target;
 
-    const parent = hasParent(target, this.options.message);
+    var parent = hasParent(target, this.options.message);
 
     if (!parent) return;
     this.swipeTarget = parent;
@@ -505,6 +511,8 @@ var Scroll = (function() {
     this.swipeTargetWidth = this.swipeTarget.offsetWidth;
     this.initialX = ev.pageX || ev.touches[0].pageX;
     this.currentX = this.initialX;
+
+    // ev.preventDefault();
   };
 
   Scroll.prototype.continueSwipe = function(ev) {
@@ -554,7 +562,7 @@ var Scroll = (function() {
     this.swipeTarget.style.MozUserSelect = "none";
     this.swipeTarget.style.msUserSelect = "none";
     this.swipeTarget.style.userSelect = "none";
-
+    this.swipeTarget.style.transition = "";
     this.swipeTarget.style.transform = "translate(" + diff + "px," + yTranslate + "px)";
     this.swipeTarget.style.opacity = opacity;
 
